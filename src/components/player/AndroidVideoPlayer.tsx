@@ -1,3 +1,4 @@
+const [brightness, setBrightness] = useState(0.5);
 import React, { useRef, useEffect, useMemo, useCallback, useState } from 'react';
 import { View, StyleSheet, Platform, Animated, ToastAndroid, ActivityIndicator } from 'react-native';
 import { toast } from '@backpackapp-io/react-native-toast';
