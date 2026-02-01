@@ -48,6 +48,8 @@ export const usePlayerGestureControls = (config: GestureControlConfig) => {
   const brightnessSensitivity = baseBrightnessSensitivity * platformMultiplier;
 
   // Volume gesture handler
+  const [brightness, setBrightness] = useState(0.5);
+  const [volume, setVolume] = useState(1.0);
   const onVolumeGestureEvent = Animated.event(
     [{ nativeEvent: { translationY: volumeGestureTranslateY } }],
     {
@@ -100,6 +102,14 @@ export const usePlayerGestureControls = (config: GestureControlConfig) => {
   );
 
   // Brightness gesture handler - only active if brightness is provided
+  const gestureControls = usePlayerGestureControls({
+  volume,
+  setVolume,
+  volumeRange: { min: 0, max: 1 },
+  volumeSensitivity: 0.006,
+  brightnessSensitivity: 0.004,
+  debugMode: DEBUG_MODE,
+});
   const onBrightnessGestureEvent = config.brightness !== undefined && config.setBrightness
     ? Animated.event(
       [{ nativeEvent: { translationY: brightnessGestureTranslateY } }],
