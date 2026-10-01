@@ -1,1 +1,15 @@
-{"id":"com.kotlinjs5.nuviostream","version":"0.2.0","name":"Nuvio Stream","description":"Configurable HTTP streaming addon with language-aware provider support.","resources":["stream"],"types":["movie","series"],"idPrefixes":["tt","tmdb"],"catalogs":[],"behaviorHints":{"adult":false,"p2pNotSupported":true,"configurable":false}}
+{
+  "id": "com.kotlinjs5.nuviostream",
+  "version": "0.3.0",
+  "name": "Nuvio Stream",
+  "description": "Nuvio-compatible HTTP streaming addon with public-domain/Creative Commons source support.",
+  "resources": ["stream"],
+  "types": ["movie", "series"],
+  "idPrefixes": ["tt", "tmdb"],
+  "catalogs": [],
+  "behaviorHints": {
+    "adult": false,
+    "p2pNotSupported": true,
+    "configurable": false
+  }
+}
