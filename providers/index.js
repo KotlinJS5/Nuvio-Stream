@@ -16,10 +16,14 @@ export async function getStreams(type, id) {
   const local = await getLocalStreams(type, id);
   const media = await resolveTitle(type, id);
 
-  if (!media) return local;
+  // Internet Archive is a movie source here. Series episodes remain supported
+  // through the authorized local provider until an episode-aware source is added.
+  if (!media || type !== "movie") return local;
 
   const remote = await searchInternetArchive(media);
-  const merged = [...local, ...remote].filter(s => s?.url && /^https?:\/\//i.test(s.url));
+  const merged = [...local, ...remote].filter(
+    s => s?.url && /^https?:\/\//i.test(s.url)
+  );
 
   return dedupe(merged).map((s, i) => ({
     name: [s.language, s.provider || s.name].filter(Boolean).join(" • "),
