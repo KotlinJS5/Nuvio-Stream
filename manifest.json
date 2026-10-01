@@ -1,0 +1,1 @@
+{"id":"com.kotlinjs5.nuviostream","version":"0.1.0","name":"Nuvio Stream","description":"A configurable HTTP streaming addon for Nuvio and Stremio-compatible clients.","resources":["stream"],"types":["movie","series"],"idPrefixes":["tt","tmdb"],"catalogs":[],"behaviorHints":{"adult":false,"p2pNotSupported":true,"configurable":false}}
