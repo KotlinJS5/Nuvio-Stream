@@ -15,8 +15,15 @@ async function getJson(url) {
   }
 }
 
+function baseVideoId(id) {
+  const clean = decodeURIComponent(id);
+  if (clean.startsWith("tt")) return clean.split(":")[0];
+  if (clean.startsWith("tmdb:")) return clean.split(":")[0];
+  return clean;
+}
+
 export async function resolveTitle(type, id) {
-  const cleanId = decodeURIComponent(id);
+  const cleanId = baseVideoId(id);
   const url = `${BASE}/meta/${type}/${encodeURIComponent(cleanId)}.json`;
   const data = await getJson(url);
   const meta = data?.meta;
@@ -27,6 +34,6 @@ export async function resolveTitle(type, id) {
     title: meta.name || meta.title || "",
     year: meta.year ? String(meta.year) : "",
     imdbId: meta.imdb_id || (cleanId.startsWith("tt") ? cleanId : ""),
-    language: meta.language || meta.originalLanguage || "",
+    language: meta.language || meta.originalLanguage || ""
   };
 }
