@@ -1,8 +1,8 @@
 {
   "id": "com.kotlinjs5.nuviostream",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "name": "Nuvio Stream",
-  "description": "Nuvio-compatible HTTP streaming addon with public-domain/Creative Commons source support.",
+  "description": "Authorized HTTP streaming addon with public-domain and Creative Commons source discovery.",
   "resources": ["stream"],
   "types": ["movie", "series"],
   "idPrefixes": ["tt", "tmdb"],
